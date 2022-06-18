@@ -25,9 +25,17 @@ if ($allRequest->have_posts()): ?>
                 <td><strong><?=  get_field(acforJobs::ACF_SURNAME) ?></strong></<td>
                 <td><strong><?=  get_field(acforJobs::ACF_PHONE) ?></strong></<td>
                 <td><strong><?=  get_field(acforJobs::ACF_EMAIL) ?></strong></<td>
-                <td><strong><a href="<?=  get_field(acforJobs::ACF_SOCIAL) ?>" target="_blank"><?= __('Link social' , JobCandidatePostType::TEXT_DOMAIN)?></a></strong></<td>
+                <?php if($social = get_field(acforJobs::ACF_SOCIAL)) {
+                    echo '<td><strong><a href="'.$social.'" download>'. __('Link social' , JobCandidatePostType::TEXT_DOMAIN).'</a></strong></<td>';
+                } else {
+                    echo '<td></td>';
+                } ?>
                 <td><strong><?=  get_term(  get_field(acforJobs::ACF_TYPE) )->name; ?></strong></<td>
-                <td><strong><a href="<?=  get_field(acforJobs::ACF_CV) ?>" download><?= __('Download' , JobCandidatePostType::TEXT_DOMAIN)?></a></strong></<td>
+                <?php if($cv = get_field(acforJobs::ACF_CV)) {
+                    echo '<td><strong><a href="'.$cv.'" download>'. __('Download' , JobCandidatePostType::TEXT_DOMAIN).'</a></strong></<td>';
+                } else {
+                        echo '<td></td>';
+                } ?>
                 <td><strong><?=  get_field(acforJobs::ACF_TICKET) ?></strong></<td>
             </tr>
         <?php endwhile; ?>
@@ -38,4 +46,3 @@ if ($allRequest->have_posts()): ?>
     <h1><?= __('No request found', JobCandidatePostType::TEXT_DOMAIN) ?></h1>
 
 <?php endif; wp_reset_postdata(); wp_reset_query();
-
