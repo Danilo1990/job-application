@@ -1,59 +1,32 @@
-# Job application
+# Job application 
 
-## Disclaimer
-
-Currently the plugin is in early development. Bugs may be frequent and things might
-break down badly if used. Use this plugin in production *only* if you're ready
-encounter bugs and missing features.
+Worpdress plugin for work collaboration requests
 
 ## Installation
 
-During development phase: clone this repo to your `wp-plugins` directory and run the
-following inside it
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
-    $ composer install && npm install
-    $ gulp
+1. In your admin panel, go to Plugins Add New button.
+2. Click Upload and Choose File, then select the job-application .zip file. Click Active Now.
+3. Click Activate to use your new plugin right away.
 
-and then activate in `wp-admin`. By default the plugin will use the `$wpdb` logger.
+## Usage
 
-### Requirements
+```php
+import job-application
 
-The plugin requires a PHP **7** system. This means WP 4.4 and upwards is supported.
+// returns 'form'
+[form-application]
 
-## Updates
+// returns 'All applications'
+[all-applications]
 
-The plugin features code which should update it directly from GitHub releases. If you
-encounter problems during updates, please create an issue so we can take a look.
-
-## Uninstallation
-
-Remove the plugin inside `wp-admin`. If you want to just "delete" it, remove the
-plugin directory and dispose of the `{$prefix}_wplog` database table.
-
-### Logged data
-
-If you've used custom log endpoints, you will need to handle removing the data from
-those endpoints yourself if you uninstall this plugin.
-
-If you decide to keep the logged data as is, and reinstall this plugin later, no
-conflicts should occur with old and new data.
-
-## TODO
-
--   Documentation.
--   Plain file logging endpoint to plugin core.
--   A way to actually view the logs generated using the core endpoints.
--   A way to make external logging service logs viewable in wp-admin.
--   Define global and endpoint specific settings which should be customizeable.
+```
 
 ## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
--   Create issues at the issue tracker.
--   Send pull requests for fixes and features.
-
-Once the plugin is more mature, we're going to start keeping a list of good logging
-endpoints that third parties have created.
+Please make sure to update tests as appropriate.
 
 ## License
-
-GPLv3+, see `LICENSE.md`.
+GPLv3+, see `LICENSE.md`
