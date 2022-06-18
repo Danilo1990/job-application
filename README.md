@@ -1,2 +1,2 @@
 # Job applications
-My first project plugin 
+Worpdress plugin for work collaboration requests
