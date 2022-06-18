@@ -42,7 +42,6 @@ class JobCandidatePostType {
         add_action( 'init', array( $this, 'add_taxonomies'), 0 );
 
         add_action( 'admin_enqueue_scripts', array ( $this, 'jobAdminStyles' ) , 500 );
-        add_action( 'wp_enqueue_scripts', array ( $this, 'jobFrontendStyles' ) , 500);
 
     }
 
@@ -111,15 +110,6 @@ class JobCandidatePostType {
      		[],
      	);
      }
-
-    public function jobFrontendStyles() {
-
-        wp_enqueue_style(
-            'Job_Front_Plugin',
-            plugins_url( 'css/job.css', __FILE__ ),
-            [],
-        );
-    }
 
     public function requires() {
         require(dirname(__FILE__) . DIRECTORY_SEPARATOR . "inc" . DIRECTORY_SEPARATOR . "acf.php");
